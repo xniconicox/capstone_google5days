@@ -6,6 +6,15 @@ This repository is my submission for the **â€œAgents Intensive Capstone Projectâ
 
 ---
 
+## 0. Environment Setup
+
+This project uses `uv` for dependency management.
+
+Install dependencies:
+
+```bash
+uv sync
+
 ## 1. Overview
 
 Searching satellite imagery normally requires detailed knowledge of:
