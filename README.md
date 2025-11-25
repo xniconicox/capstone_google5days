@@ -108,13 +108,14 @@ No `gcloud` login or ADC credentials are required.
 ```bash
 adk web src/capstone/scripts/
 ```
-you can start chatting.
 
-### Programmatic eval (fast smoke test)
+Then:
 
-```bash
-.venv/bin/python -m capstone.scripts.run_eval
-```
+1. Open the printed URL in your browser
+2. You can chat with Agent.
+ex.)
+"Find Sentinel-2 images over eastern Hokkaido between 2023-06-15 and 2023-06-30 with less than 20% cloud cover."
+"Find high-resolution optical images over eastern Hokkaido in summer 2023 with less than 10% cloud."
 
 ## 5. Testing & Kaggle
 

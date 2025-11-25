@@ -9,6 +9,12 @@ The workflow follows ADK’s recommended evaluation structure and supports devel
 
 ## 1. Unit Tests (pytest)
 
+Install dependencies first (including test extras):
+```bash
+uv sync --extra test
+```
+
+
 Run deterministic tests:
 
 ```bash
