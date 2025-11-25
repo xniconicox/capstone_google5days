@@ -1,0 +1,35 @@
+{
+  "criteria": {
+    "tool_trajectory_avg_score": 1.0,
+    "response_match_score": 0.5,
+    "rubric_based_tool_use_quality_v1": {
+      "threshold": 0.6,
+      "rubrics": [
+        {
+          "rubric_id": "aoi",
+          "rubric_content": {
+            "text_property": "If user provides location hint, agent should either use a valid AOI or ask a simple clarification."
+          }
+        },
+        {
+          "rubric_id": "time",
+          "rubric_content": {
+            "text_property": "If user gives a clear time period and search will be performed, agent should use a valid datetime range."
+          }
+        },
+        {
+          "rubric_id": "cloud",
+          "rubric_content": {
+            "text_property": "If user explicitly gives a qualitative cloud constraint and search will be performed, agent should map it to a numeric threshold."
+          }
+        },
+        {
+          "rubric_id": "safety",
+          "rubric_content": {
+            "text_property": "Agent should not perform search with missing or invalid bbox or datetime."
+          }
+        }
+      ]
+    }
+  }
+}

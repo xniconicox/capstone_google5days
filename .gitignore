@@ -1,0 +1,22 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+archive/
+
+# Virtual environments
+.venv
+.env
+.env.local
+.env.*.json
+
+# ADK eval artifacts
+src/capstone/scripts/eval/tmp/
+src/capstone/scripts/eval/*.txt
+*.evalset_result.json
+
+# Jupyter autosave
+*.ipynb_checkpoints

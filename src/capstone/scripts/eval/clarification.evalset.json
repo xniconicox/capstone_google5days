@@ -1,0 +1,338 @@
+{
+  "eval_set_id": "clarification",
+  "name": "clarification",
+  "eval_cases": [
+    {
+      "eval_id": "case_2_1_tokyo_late_may_2021_clarify",
+      "conversation": [
+        {
+          "invocation_id": "e-b2a15628-9b06-4222-bbe9-c7bbac2a7155",
+          "user_content": {
+            "parts": [
+              {
+                "text": "I need low-cloud Sentinel-2 images of tokyo in late May 2021.\n\n"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "OK, I will search for Sentinel-2 images of the Tokyo area.\n\nHowever, \"late May 2021\" is ambiguous. Could you tell me the exact date range you want? For example, do you mean:\n  * 2021-05-21 to 2021-05-31\n  * 2021-05-23 to 2021-05-31\n  * 2021-05-25 to 2021-05-31\nOnce I have the exact range, I can search for low-cloud Sentinel-2 scenes.\n"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "satellite_stac_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-9b475549-ab7b-434f-a0c0-22e7b2c637ec",
+                        "args": {
+                          "location_hint": "tokyo"
+                        },
+                        "name": "resolve_aoi"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "satellite_stac_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-9b475549-ab7b-434f-a0c0-22e7b2c637ec",
+                        "name": "resolve_aoi",
+                        "response": {
+                          "matched": true,
+                          "aoi_id": "tokyo_area",
+                          "bbox": [
+                            138.8,
+                            34.8,
+                            140.0,
+                            36.2
+                          ],
+                          "center": {
+                            "lon": 139.4,
+                            "lat": 35.5
+                          },
+                          "note": "Greater Tokyo area",
+                          "default_cloud_cover": null,
+                          "message": "Matched known AOI."
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1763965278.081689
+        }
+      ],
+      "session_input": {
+        "app_name": "eval",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1763965330.8260195
+    },
+    {
+      "eval_id": "case_2_2_northern_japan_autumn_2023_clarify",
+      "conversation": [
+        {
+          "invocation_id": "e-1ea4771b-04e4-46b3-9f80-e04c0200ac97",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Show me low-cloud Sentinel-2 images over northern Japan in autumn 2023."
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "I can't find a predefined area called \"northern Japan\". Could you please provide a bounding box (min_lon, min_lat, max_lon, max_lat) or the coordinates of the area you're interested in? Alternatively, I can search around a point in northern Japan; is that okay?\n"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "satellite_stac_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-22dde276-c784-49a3-89e3-c3b2c3a1cc5d",
+                        "args": {
+                          "location_hint": "northern Japan"
+                        },
+                        "name": "resolve_aoi"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "satellite_stac_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-22dde276-c784-49a3-89e3-c3b2c3a1cc5d",
+                        "name": "resolve_aoi",
+                        "response": {
+                          "matched": false,
+                          "aoi_id": null,
+                          "bbox": null,
+                          "center": null,
+                          "note": null,
+                          "default_cloud_cover": null,
+                          "message": "No matching known AOI. Ask the user for bbox or coordinates, or propose a rough center coordinate and get consent."
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1763965367.918142
+        }
+      ],
+      "session_input": {
+        "app_name": "eval",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1763966598.543433
+    },
+    {
+      "eval_id": "case_2_3_japan_last_summer_clarify",
+      "conversation": [
+        {
+          "invocation_id": "e-c2cdee62-f76c-4c6f-956c-04704adf2698",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Show me cloud-free Sentinel-2 images over Japan last summer.\n\n"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Could you please specify the exact date range for \"last summer\"? As examples:\n* 2023-06-01 to 2023-08-31\n* 2023-07-01 to 2023-09-30\n* 2023-05-01 to 2023-08-31\n"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {},
+          "creation_timestamp": 1763966968.689437
+        }
+      ],
+      "session_input": {
+        "app_name": "eval",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1763967002.0050313
+    },
+    {
+      "eval_id": "case_2_4_ehokkaido_missing_period_clarify",
+      "conversation": [
+        {
+          "invocation_id": "e-ba9a7af7-f480-4e85-88be-4f3d52a0ce87",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Show me cloud-free Sentinel-2 images over eastern Hokkaido."
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "OK. I will search for cloud-free Sentinel-2 images over eastern Hokkaido.\nCould you please specify the time period you are interested in?"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "satellite_stac_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-6f777c72-32fd-4e09-b097-2bf2d71bde37",
+                        "args": {
+                          "location_hint": "eastern Hokkaido"
+                        },
+                        "name": "resolve_aoi"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "satellite_stac_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-6f777c72-32fd-4e09-b097-2bf2d71bde37",
+                        "name": "resolve_aoi",
+                        "response": {
+                          "matched": true,
+                          "aoi_id": "hokkaido_east",
+                          "bbox": [
+                            143.0,
+                            42.5,
+                            146.0,
+                            45.5
+                          ],
+                          "center": {
+                            "lon": 144.5,
+                            "lat": 44.0
+                          },
+                          "note": "Eastern Hokkaido",
+                          "default_cloud_cover": null,
+                          "message": "Matched known AOI."
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1763967092.711141
+        }
+      ],
+      "session_input": {
+        "app_name": "eval",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1763967109.967527
+    },
+    {
+      "eval_id": "case_2_5_august2023_missing_location_clarify",
+      "conversation": [
+        {
+          "invocation_id": "e-36e45b3a-e0c4-47a3-a40f-b1b15bc34029",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Show me cloud-free Sentinel-2 images from August 2023."
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Which area are you interested in?"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {},
+          "creation_timestamp": 1763967234.575509
+        }
+      ],
+      "session_input": {
+        "app_name": "eval",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1763967250.1987555
+    },
+    {
+      "eval_id": "case_2_6_cloud5_missing_loc_period_clarify",
+      "conversation": [
+        {
+          "invocation_id": "e-877397ba-addd-4222-a373-cab2341aedd8",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Show me Sentinel-2 images with cloud cover below 5%."
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Which area and which time period are you interested in?"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {},
+          "creation_timestamp": 1763967262.240995
+        }
+      ],
+      "session_input": {
+        "app_name": "eval",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1763967277.7868574
+    }
+  ],
+  "creation_timestamp": 1763967072.0248518
+}

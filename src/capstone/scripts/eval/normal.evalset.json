@@ -1,0 +1,812 @@
+{
+  "eval_set_id": "normal",
+  "name": "normal",
+  "eval_cases": [
+    {
+      "eval_id": "case_1_1_eastern_hokkaido_20230615_30",
+      "conversation": [
+        {
+          "invocation_id": "e-e5afe5ff-db3c-4a01-9fcd-ce8188641f6c",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Find Sentinel-2 images over eastern Hokkaido between 2023-06-15 and 2023-06-30 with less than 20% cloud cover"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Here are the top 5 Sentinel-2 images over eastern Hokkaido between 2023-06-15 and 2023-06-30 with less than 20% cloud cover. Cloud cover is based on scene-level metadata and may not perfectly match conditions over your exact area of interest.\n\n| id | datetime (UTC) | cloud_cover (%) | preview_url |\n| --- | --- | --- | --- |\n| S2A_54TXN_20230626_0_L2A | 2023-06-26T01:35:18.727000Z | 2.315132 | https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/54/T/XN/2023/6/S2A_54TXN_20230626_0_L2A/thumbnail.jpg |\n| S2A_54TYN_20230626_0_L2A | 2023-06-26T01:35:11.873000Z | 0.003407 | https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/54/T/YN/2023/6/S2A_54TYN_20230626_0_L2A/thumbnail.jpg |\n| S2A_54TXP_20230626_0_L2A | 2023-06-26T01:35:04.578000Z | 12.502974 | https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/54/T/XP/2023/6/S2A_54TXP_20230626_0_L2A/thumbnail.jpg |\n| S2A_54TYP_20230626_0_L2A | 2023-06-26T01:35:00.305000Z | 0.267544 | https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/54/T/YP/2023/6/S2A_54TYP_20230626_0_L2A/thumbnail.jpg |\n| S2A_54TYR_20230626_0_L2A | 2023-06-26T01:34:31.792000Z | 12.406484 | https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/54/T/YR/2023/6/S2A_54TYR_20230626_0_L2A/thumbnail.jpg |\n\nAll scenes are from 2023-06-26 and have cloud cover less than 13%.\n"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "satellite_stac_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-5f80e962-e190-4e77-ad3a-d8173a140cb8",
+                        "args": {
+                          "location_hint": "eastern Hokkaido"
+                        },
+                        "name": "resolve_aoi"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "satellite_stac_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-5f80e962-e190-4e77-ad3a-d8173a140cb8",
+                        "name": "resolve_aoi",
+                        "response": {
+                          "matched": true,
+                          "aoi_id": "hokkaido_east",
+                          "bbox": [
+                            143.0,
+                            42.5,
+                            146.0,
+                            45.5
+                          ],
+                          "center": {
+                            "lon": 144.5,
+                            "lat": 44.0
+                          },
+                          "note": "Eastern Hokkaido",
+                          "default_cloud_cover": null,
+                          "message": "Matched known AOI."
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              },
+              {
+                "author": "satellite_stac_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "text": "OK. I will search for Sentinel-2 images over eastern Hokkaido between 2023-06-15 and 2023-06-30 with less than 20% cloud cover.\n\n"
+                    },
+                    {
+                      "function_call": {
+                        "id": "adk-c8c4e3ec-6d1c-4ef8-ae76-187d8708f725",
+                        "args": {
+                          "datetime_range": "2023-06-15T00:00:00Z/2023-06-30T23:59:59Z",
+                          "collections": [
+                            "sentinel-2-l2a"
+                          ],
+                          "bbox": [
+                            143,
+                            42.5,
+                            146,
+                            45.5
+                          ],
+                          "cloud_cover_max": 20,
+                          "limit": 5
+                        },
+                        "name": "search_satellite_scenes"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "satellite_stac_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-c8c4e3ec-6d1c-4ef8-ae76-187d8708f725",
+                        "name": "search_satellite_scenes",
+                        "response": {
+                          "result": [
+                            {
+                              "id": "S2A_54TXN_20230626_0_L2A",
+                              "datetime": "2023-06-26T01:35:18.727000Z",
+                              "cloud_cover": 2.315132,
+                              "preview_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/54/T/XN/2023/6/S2A_54TXN_20230626_0_L2A/thumbnail.jpg"
+                            },
+                            {
+                              "id": "S2A_54TYN_20230626_0_L2A",
+                              "datetime": "2023-06-26T01:35:11.873000Z",
+                              "cloud_cover": 0.003407,
+                              "preview_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/54/T/YN/2023/6/S2A_54TYN_20230626_0_L2A/thumbnail.jpg"
+                            },
+                            {
+                              "id": "S2A_54TXP_20230626_0_L2A",
+                              "datetime": "2023-06-26T01:35:04.578000Z",
+                              "cloud_cover": 12.502974,
+                              "preview_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/54/T/XP/2023/6/S2A_54TXP_20230626_0_L2A/thumbnail.jpg"
+                            },
+                            {
+                              "id": "S2A_54TYP_20230626_0_L2A",
+                              "datetime": "2023-06-26T01:35:00.305000Z",
+                              "cloud_cover": 0.267544,
+                              "preview_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/54/T/YP/2023/6/S2A_54TYP_20230626_0_L2A/thumbnail.jpg"
+                            },
+                            {
+                              "id": "S2A_54TYR_20230626_0_L2A",
+                              "datetime": "2023-06-26T01:34:31.792000Z",
+                              "cloud_cover": 12.406484,
+                              "preview_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/54/T/YR/2023/6/S2A_54TYR_20230626_0_L2A/thumbnail.jpg"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1763948788.333343
+        }
+      ],
+      "session_input": {
+        "app_name": "eval",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1763949289.1091092
+    },
+    {
+      "eval_id": "case_1_2_almost_cloud_free_japan_2023",
+      "conversation": [
+        {
+          "invocation_id": "e-3a5d582f-2b96-4bc5-8f7a-596b3e74c003",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Show me almost cloud-free Sentinel-2 images over Japan in 2023."
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Here are the top 5 Sentinel-2 scenes over Japan in 2023 with cloud cover less than 15%:\n\n| id | datetime (UTC) | cloud_cover (%) | preview_url |\n| --- | --- | --- | --- |\n| S2A_51RUL_20231231_0_L2A | 2023-12-31T02:40:03.922000Z | 0.016642 | https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/51/R/UL/2023/12/S2A_51RUL_20231231_0_L2A/thumbnail.jpg |\n| S2A_51RVL_20231231_0_L2A | 2023-12-31T02:40:00.383000Z | 0.008358 | https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/51/R/VL/2023/12/S2A_51RVL_20231231_0_L2A/thumbnail.jpg |\n| S2A_51RWL_20231231_0_L2A | 2023-12-31T02:39:56.707000Z | 0.007361 | https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/51/R/WL/2023/12/S2A_51RWL_20231231_0_L2A/thumbnail.jpg |\n| S2A_51RUM_20231231_0_L2A | 2023-12-31T02:39:49.278000Z | 2.437858 | https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/51/R/UM/2023/12/S2A_51RUM_20231231_0_L2A/thumbnail.jpg |\n| S2A_51RVM_20231231_0_L2A | 2023-12-31T02:39:45.869000Z | 0.006111 | https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/51/R/VM/2023/12/S2A_51RVM_20231231_0_L2A/thumbnail.jpg |\n\nThese Sentinel-2 scenes were acquired at the end of 2023 and have very low cloud cover. Note that cloud cover is based on scene-level metadata and may not perfectly match conditions over your exact area of interest.\n"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "satellite_stac_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-80e4632c-f748-4a9b-93ea-5adbaf24ce05",
+                        "args": {
+                          "location_hint": "japan"
+                        },
+                        "name": "resolve_aoi"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "satellite_stac_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-80e4632c-f748-4a9b-93ea-5adbaf24ce05",
+                        "name": "resolve_aoi",
+                        "response": {
+                          "matched": true,
+                          "aoi_id": "japan",
+                          "bbox": [
+                            122.0,
+                            24.0,
+                            153.0,
+                            46.0
+                          ],
+                          "center": {
+                            "lon": 137.5,
+                            "lat": 35.0
+                          },
+                          "note": "Japan main islands",
+                          "default_cloud_cover": null,
+                          "message": "Matched known AOI."
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              },
+              {
+                "author": "satellite_stac_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "text": "OK. I will search for Sentinel-2 images over Japan (bounding box [122.0, 24.0, 153.0, 46.0]) during the year 2023 (datetime range 2023-01-01 to 2023-12-31). The cloud cover will be almost cloud-free (maximum 15%).\n\n"
+                    },
+                    {
+                      "function_call": {
+                        "id": "adk-f2b1a9fb-f001-464f-9534-d718b94c2d02",
+                        "args": {
+                          "datetime_range": "2023-01-01T00:00:00Z/2023-12-31T23:59:59Z",
+                          "limit": 5,
+                          "bbox": [
+                            122,
+                            24,
+                            153,
+                            46
+                          ],
+                          "collections": [
+                            "sentinel-2-l2a"
+                          ],
+                          "cloud_cover_max": 15
+                        },
+                        "name": "search_satellite_scenes"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "satellite_stac_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-f2b1a9fb-f001-464f-9534-d718b94c2d02",
+                        "name": "search_satellite_scenes",
+                        "response": {
+                          "result": [
+                            {
+                              "id": "S2A_51RUL_20231231_0_L2A",
+                              "datetime": "2023-12-31T02:40:03.922000Z",
+                              "cloud_cover": 0.016642,
+                              "preview_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/51/R/UL/2023/12/S2A_51RUL_20231231_0_L2A/thumbnail.jpg"
+                            },
+                            {
+                              "id": "S2A_51RVL_20231231_0_L2A",
+                              "datetime": "2023-12-31T02:40:00.383000Z",
+                              "cloud_cover": 0.008358,
+                              "preview_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/51/R/VL/2023/12/S2A_51RVL_20231231_0_L2A/thumbnail.jpg"
+                            },
+                            {
+                              "id": "S2A_51RWL_20231231_0_L2A",
+                              "datetime": "2023-12-31T02:39:56.707000Z",
+                              "cloud_cover": 0.007361,
+                              "preview_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/51/R/WL/2023/12/S2A_51RWL_20231231_0_L2A/thumbnail.jpg"
+                            },
+                            {
+                              "id": "S2A_51RUM_20231231_0_L2A",
+                              "datetime": "2023-12-31T02:39:49.278000Z",
+                              "cloud_cover": 2.437858,
+                              "preview_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/51/R/UM/2023/12/S2A_51RUM_20231231_0_L2A/thumbnail.jpg"
+                            },
+                            {
+                              "id": "S2A_51RVM_20231231_0_L2A",
+                              "datetime": "2023-12-31T02:39:45.869000Z",
+                              "cloud_cover": 0.006111,
+                              "preview_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/51/R/VM/2023/12/S2A_51RVM_20231231_0_L2A/thumbnail.jpg"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1763949572.69154
+        }
+      ],
+      "session_input": {
+        "app_name": "eval",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1763950558.890588
+    },
+    {
+      "eval_id": "case_1_3_tokyo_area_20230810_20",
+      "conversation": [
+        {
+          "invocation_id": "e-960de54f-aef4-4cde-96e1-95df797054c6",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Show me Sentinel-2 images over the Tokyo area from Aug 10–20 2023 without any cloud constraint"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Here are the top 5 Sentinel-2 images over the Tokyo area from August 10-20 2023, sorted by lowest cloud cover:\n\n| id | datetime (UTC) | cloud_cover (%) | preview_url |\n| --- | --- | --- | --- |\n| S2B_54SUD_20230820_0_L2A | 2023-08-20T01:37:41.656000Z | 6.479803 | https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/54/S/UD/2023/8/S2B_54SUD_20230820_0_L2A/thumbnail.jpg |\n| S2B_54SVD_20230820_0_L2A | 2023-08-20T01:37:37.552000Z | 8.546674 | https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/54/S/VD/2023/8/S2B_54SVD_20230820_0_L2A/thumbnail.jpg |\n| S2B_54STD_20230820_0_L2A | 2023-08-20T01:37:45.352000Z | 25.058144 | https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/54/S/TD/2023/8/S2B_54STD_20230820_0_L2A/thumbnail.jpg |\n| S2B_54SUE_20230820_0_L2A | 2023-08-20T01:37:27.352000Z | 36.513057 | https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/54/S/UE/2023/8/S2B_54SUE_20230820_0_L2A/thumbnail.jpg |\n| S2B_54STE_20230820_0_L2A | 2023-08-20T01:37:31.047000Z | 38.342547 | https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/54/S/TE/2023/8/S2B_54STE_20230820_0_L2A/thumbnail.jpg |\n\nThese scenes are from Sentinel-2, and the cloud cover percentages are based on scene-level metadata, which may not perfectly reflect cloud conditions over your specific area of interest within Tokyo.\n"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "satellite_stac_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-39b8e2dd-3b7f-46ba-9eae-677c222d2b77",
+                        "args": {
+                          "location_hint": "Tokyo area"
+                        },
+                        "name": "resolve_aoi"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "satellite_stac_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-39b8e2dd-3b7f-46ba-9eae-677c222d2b77",
+                        "name": "resolve_aoi",
+                        "response": {
+                          "matched": true,
+                          "aoi_id": "tokyo_area",
+                          "bbox": [
+                            138.8,
+                            34.8,
+                            140.0,
+                            36.2
+                          ],
+                          "center": {
+                            "lon": 139.4,
+                            "lat": 35.5
+                          },
+                          "note": "Greater Tokyo area",
+                          "default_cloud_cover": null,
+                          "message": "Matched known AOI."
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              },
+              {
+                "author": "satellite_stac_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "text": "OK. I will search for Sentinel-2 images over the Tokyo area between August 10 and August 20, 2023, without any cloud constraint.\n\n"
+                    },
+                    {
+                      "function_call": {
+                        "id": "adk-8004d134-9fcb-4c5a-b6d3-65f84bc4b192",
+                        "args": {
+                          "datetime_range": "2023-08-10T00:00:00Z/2023-08-20T23:59:59Z",
+                          "collections": [
+                            "sentinel-2-l2a"
+                          ],
+                          "limit": 5,
+                          "bbox": [
+                            138.8,
+                            34.8,
+                            140,
+                            36.2
+                          ],
+                          "cloud_cover_max": 100
+                        },
+                        "name": "search_satellite_scenes"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "satellite_stac_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-8004d134-9fcb-4c5a-b6d3-65f84bc4b192",
+                        "name": "search_satellite_scenes",
+                        "response": {
+                          "result": [
+                            {
+                              "id": "S2B_54STD_20230820_0_L2A",
+                              "datetime": "2023-08-20T01:37:45.352000Z",
+                              "cloud_cover": 25.058144,
+                              "preview_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/54/S/TD/2023/8/S2B_54STD_20230820_0_L2A/thumbnail.jpg"
+                            },
+                            {
+                              "id": "S2B_54SUD_20230820_0_L2A",
+                              "datetime": "2023-08-20T01:37:41.656000Z",
+                              "cloud_cover": 6.479803,
+                              "preview_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/54/S/UD/2023/8/S2B_54SUD_20230820_0_L2A/thumbnail.jpg"
+                            },
+                            {
+                              "id": "S2B_54SVD_20230820_0_L2A",
+                              "datetime": "2023-08-20T01:37:37.552000Z",
+                              "cloud_cover": 8.546674,
+                              "preview_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/54/S/VD/2023/8/S2B_54SVD_20230820_0_L2A/thumbnail.jpg"
+                            },
+                            {
+                              "id": "S2B_54STE_20230820_0_L2A",
+                              "datetime": "2023-08-20T01:37:31.047000Z",
+                              "cloud_cover": 38.342547,
+                              "preview_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/54/S/TE/2023/8/S2B_54STE_20230820_0_L2A/thumbnail.jpg"
+                            },
+                            {
+                              "id": "S2B_54SUE_20230820_0_L2A",
+                              "datetime": "2023-08-20T01:37:27.352000Z",
+                              "cloud_cover": 36.513057,
+                              "preview_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/54/S/UE/2023/8/S2B_54SUE_20230820_0_L2A/thumbnail.jpg"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1763962765.926779
+        }
+      ],
+      "session_input": {
+        "app_name": "eval",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1763962918.96144
+    },
+    {
+      "eval_id": "case_1_4_sapporo_202309_cloud_free",
+      "conversation": [
+        {
+          "invocation_id": "e-03ef6b00-8175-4d4d-9827-6875632f3143",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Find cloud-free images around Sapporo in September 2023."
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Here are the top 5 scenes matching your query for cloud-free images around Sapporo in September 2023:\n\n| id | datetime (UTC) | cloud_cover (%) | preview_url |\n| --- | --- | --- | --- |\n| S2A_54TWN_20230924_0_L2A | 2023-09-24T01:35:21.383000Z | 0.955332 | https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/54/T/WN/2023/9/S2A_54TWN_20230924_0_L2A/thumbnail.jpg |\n| S2A_54TVN_20230924_0_L2A | 2023-09-24T01:35:25.002000Z | 1.731653 | https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/54/T/VN/2023/9/S2A_54TVN_20230924_0_L2A/thumbnail.jpg |\n| S2A_54TWP_20230927_0_L2A | 2023-09-27T01:45:03.073000Z | 3.930635 | https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/54/T/WP/2023/9/S2A_54TWP_20230927_0_L2A/thumbnail.jpg |\n| S2A_54TVP_20230927_1_L2A | 2023-09-27T01:45:07.331000Z | 4.804127 | https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/54/T/VP/2023/9/S2A_54TVP_20230927_1_L2A/thumbnail.jpg |\n| S2B_54TVP_20230929_0_L2A | 2023-09-29T01:35:10.971000Z | 8.158846 | https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/54/T/VP/2023/9/S2B_54TVP_20230929_0_L2A/thumbnail.jpg |\n\nThese Sentinel-2 scenes have cloud cover less than 10% and were acquired in September 2023. Cloud cover is based on scene-level metadata and may not perfectly match conditions over your exact area of interest.\n"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "satellite_stac_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-25ced60f-947f-4c3c-9f7b-0657ae1a3445",
+                        "args": {
+                          "location_hint": "Sapporo area"
+                        },
+                        "name": "resolve_aoi"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "satellite_stac_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-25ced60f-947f-4c3c-9f7b-0657ae1a3445",
+                        "name": "resolve_aoi",
+                        "response": {
+                          "matched": true,
+                          "aoi_id": "sapporo_area",
+                          "bbox": [
+                            140.9,
+                            42.9,
+                            142.4,
+                            43.5
+                          ],
+                          "center": {
+                            "lon": 141.65,
+                            "lat": 43.2
+                          },
+                          "note": "Sapporo area",
+                          "default_cloud_cover": null,
+                          "message": "Matched known AOI."
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              },
+              {
+                "author": "satellite_stac_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "text": "OK. I will search for cloud-free images around the Sapporo area in September 2023.\nI will use the bounding box (140.9, 42.9, 142.4, 43.5) for the Sapporo area.\nI will interpret \"September 2023\" as the date range 2023-09-01 to 2023-09-30 (UTC).\n\"Cloud-free\" means cloud_cover_max = 10.\nI will use the default Sentinel-2 collection.\n\n"
+                    },
+                    {
+                      "function_call": {
+                        "id": "adk-662a7446-f240-4492-935b-52dd016c6ff6",
+                        "args": {
+                          "collections": [
+                            "sentinel-2-l2a"
+                          ],
+                          "cloud_cover_max": 10,
+                          "bbox": [
+                            140.9,
+                            42.9,
+                            142.4,
+                            43.5
+                          ],
+                          "datetime_range": "2023-09-01T00:00:00Z/2023-09-30T23:59:59Z",
+                          "limit": 5
+                        },
+                        "name": "search_satellite_scenes"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "satellite_stac_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-662a7446-f240-4492-935b-52dd016c6ff6",
+                        "name": "search_satellite_scenes",
+                        "response": {
+                          "result": [
+                            {
+                              "id": "S2B_54TVP_20230929_0_L2A",
+                              "datetime": "2023-09-29T01:35:10.971000Z",
+                              "cloud_cover": 8.158846,
+                              "preview_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/54/T/VP/2023/9/S2B_54TVP_20230929_0_L2A/thumbnail.jpg"
+                            },
+                            {
+                              "id": "S2A_54TVP_20230927_1_L2A",
+                              "datetime": "2023-09-27T01:45:07.331000Z",
+                              "cloud_cover": 4.804127,
+                              "preview_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/54/T/VP/2023/9/S2A_54TVP_20230927_1_L2A/thumbnail.jpg"
+                            },
+                            {
+                              "id": "S2A_54TWP_20230927_0_L2A",
+                              "datetime": "2023-09-27T01:45:03.073000Z",
+                              "cloud_cover": 3.930635,
+                              "preview_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/54/T/WP/2023/9/S2A_54TWP_20230927_0_L2A/thumbnail.jpg"
+                            },
+                            {
+                              "id": "S2A_54TVN_20230924_0_L2A",
+                              "datetime": "2023-09-24T01:35:25.002000Z",
+                              "cloud_cover": 1.731653,
+                              "preview_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/54/T/VN/2023/9/S2A_54TVN_20230924_0_L2A/thumbnail.jpg"
+                            },
+                            {
+                              "id": "S2A_54TWN_20230924_0_L2A",
+                              "datetime": "2023-09-24T01:35:21.383000Z",
+                              "cloud_cover": 0.955332,
+                              "preview_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/54/T/WN/2023/9/S2A_54TWN_20230924_0_L2A/thumbnail.jpg"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1763963213.017531
+        }
+      ],
+      "session_input": {
+        "app_name": "eval",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1763963303.8798892
+    },
+    {
+      "eval_id": "case_1_5_highres_optical_ehokkaido_summer2023",
+      "conversation": [
+        {
+          "invocation_id": "e-b269a1ba-90a4-464c-8f13-47a22b5b6d73",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Find high-resolution optical images over eastern Hokkaido in summer 2023 with less than 10% cloud.\n"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Here are the top 5 Sentinel-2 scenes over eastern Hokkaido during summer 2023 with less than 10% cloud cover. Cloud cover is based on scene-level metadata and may not perfectly match conditions over your exact area of interest.\n\n| id | datetime (UTC) | cloud_cover (%) | preview_url |\n|---|---|---|---|\n| S2B_55TCL_20230824_0_L2A | 2023-08-24T01:14:38.876000Z | 0.183869 | https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/55/T/CL/2023/8/S2B_55TCL_20230824_0_L2A/thumbnail.jpg |\n| S2A_55TCJ_20230819_0_L2A | 2023-08-19T01:15:06.744000Z | 5.482373 | https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/55/T/CJ/2023/8/S2A_55TCJ_20230819_0_L2A/thumbnail.jpg |\n| S2A_55TCK_20230819_0_L2A | 2023-08-19T01:14:52.565000Z | 1.317859 | https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/55/T/CK/2023/8/S2A_55TCK_20230819_0_L2A/thumbnail.jpg |\n| S2A_55TDK_20230819_0_L2A | 2023-08-19T01:14:48.815000Z | 3.560048 | https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/55/T/DK/2023/8/S2A_55TDK_20230819_0_L2A/thumbnail.jpg |\n| S2A_55TDL_20230819_0_L2A | 2023-08-19T01:14:34.503000Z | 6.487986 | https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/55/T/DL/2023/8/S2A_55TDL_20230819_0_L2A/thumbnail.jpg |\n\nThe scenes are from August 2023, with cloud cover ranging from 0.18% to 6.49%.\n"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "satellite_stac_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-198f6637-7ae0-40cd-beb3-955e7ac170bd",
+                        "args": {
+                          "location_hint": "eastern Hokkaido"
+                        },
+                        "name": "resolve_aoi"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "satellite_stac_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-198f6637-7ae0-40cd-beb3-955e7ac170bd",
+                        "name": "resolve_aoi",
+                        "response": {
+                          "matched": true,
+                          "aoi_id": "hokkaido_east",
+                          "bbox": [
+                            143.0,
+                            42.5,
+                            146.0,
+                            45.5
+                          ],
+                          "center": {
+                            "lon": 144.5,
+                            "lat": 44.0
+                          },
+                          "note": "Eastern Hokkaido",
+                          "default_cloud_cover": null,
+                          "message": "Matched known AOI."
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              },
+              {
+                "author": "satellite_stac_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "text": "OK. I will search for Sentinel-2 images (high-resolution optical) over eastern Hokkaido (bounding box 143.0, 42.5, 146.0, 45.5) in summer 2023 (interpreted as 2023-06-01 to 2023-08-31) with cloud cover less than 10%.\n\n"
+                    },
+                    {
+                      "function_call": {
+                        "id": "adk-ff339c80-a5f9-44f6-bb85-e086b7dae544",
+                        "args": {
+                          "cloud_cover_max": 10,
+                          "limit": 5,
+                          "collections": [
+                            "sentinel-2-l2a"
+                          ],
+                          "datetime_range": "2023-06-01T00:00:00Z/2023-08-31T23:59:59Z",
+                          "bbox": [
+                            143,
+                            42.5,
+                            146,
+                            45.5
+                          ]
+                        },
+                        "name": "search_satellite_scenes"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "satellite_stac_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-ff339c80-a5f9-44f6-bb85-e086b7dae544",
+                        "name": "search_satellite_scenes",
+                        "response": {
+                          "result": [
+                            {
+                              "id": "S2B_55TCL_20230824_0_L2A",
+                              "datetime": "2023-08-24T01:14:38.876000Z",
+                              "cloud_cover": 0.183869,
+                              "preview_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/55/T/CL/2023/8/S2B_55TCL_20230824_0_L2A/thumbnail.jpg"
+                            },
+                            {
+                              "id": "S2A_55TCJ_20230819_0_L2A",
+                              "datetime": "2023-08-19T01:15:06.744000Z",
+                              "cloud_cover": 5.482373,
+                              "preview_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/55/T/CJ/2023/8/S2A_55TCJ_20230819_0_L2A/thumbnail.jpg"
+                            },
+                            {
+                              "id": "S2A_55TCK_20230819_0_L2A",
+                              "datetime": "2023-08-19T01:14:52.565000Z",
+                              "cloud_cover": 1.317859,
+                              "preview_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/55/T/CK/2023/8/S2A_55TCK_20230819_0_L2A/thumbnail.jpg"
+                            },
+                            {
+                              "id": "S2A_55TDK_20230819_0_L2A",
+                              "datetime": "2023-08-19T01:14:48.815000Z",
+                              "cloud_cover": 3.560048,
+                              "preview_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/55/T/DK/2023/8/S2A_55TDK_20230819_0_L2A/thumbnail.jpg"
+                            },
+                            {
+                              "id": "S2A_55TDL_20230819_0_L2A",
+                              "datetime": "2023-08-19T01:14:34.503000Z",
+                              "cloud_cover": 6.487986,
+                              "preview_url": "https://sentinel-cogs.s3.us-west-2.amazonaws.com/sentinel-s2-l2a-cogs/55/T/DL/2023/8/S2A_55TDL_20230819_0_L2A/thumbnail.jpg"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1763963361.364914
+        }
+      ],
+      "session_input": {
+        "app_name": "eval",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1763963417.2775674
+    }
+  ],
+  "creation_timestamp": 1763949284.5198674
+}

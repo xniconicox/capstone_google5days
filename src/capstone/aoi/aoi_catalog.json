@@ -1,0 +1,75 @@
+[
+  {
+    "id": "japan",
+    "bbox": [122.0, 24.0, 153.0, 46.0],
+    "note": "Japan main islands",
+    "aliases": ["japan", "nihon", "nippon", "jpn", "日本"]
+  },
+  {
+    "id": "usa_mainland",
+    "bbox": [-125.0, 24.0, -66.5, 49.5],
+    "note": "Contiguous United States",
+    "aliases": ["usa", "united states", "united states of america", "continental us", "conus"]
+  },
+  {
+    "id": "united_kingdom",
+    "bbox": [-8.0, 49.5, 2.5, 59.0],
+    "note": "United Kingdom",
+    "aliases": ["uk", "great britain", "britain", "england", "scotland", "wales", "united kingdom"]
+  },
+  {
+    "id": "france",
+    "bbox": [-5.5, 41.0, 9.8, 51.5],
+    "note": "France",
+    "aliases": ["france"]
+  },
+  {
+    "id": "germany",
+    "bbox": [5.5, 47.0, 15.5, 55.5],
+    "note": "Germany",
+    "aliases": ["germany", "deutschland"]
+  },
+  {
+    "id": "tokyo_area",
+    "bbox": [138.8, 34.8, 140.0, 36.2],
+    "note": "Greater Tokyo area",
+    "aliases": ["tokyo", "tokyo area", "東京", "首都圏"]
+  },
+  {
+    "id": "osaka_area",
+    "bbox": [134.5, 34.0, 136.0, 35.1],
+    "note": "Osaka area",
+    "aliases": ["osaka", "osaka area", "大阪"]
+  },
+  {
+    "id": "sapporo_area",
+    "bbox": [140.9, 42.9, 142.4, 43.5],
+    "note": "Sapporo area",
+    "aliases": ["sapporo", "札幌"]
+  },
+  {
+    "id": "nagoya_area",
+    "bbox": [136.6, 34.6, 137.4, 35.3],
+    "note": "Nagoya area",
+    "aliases": ["nagoya", "名古屋"]
+  },
+  {
+    "id": "fukuoka_area",
+    "bbox": [129.9, 33.3, 131.0, 34.3],
+    "note": "Fukuoka area",
+    "aliases": ["fukuoka", "福岡"]
+  },
+  {
+    "id": "hokkaido_east",
+    "bbox": [143.0, 42.5, 146.0, 45.5],
+    "note": "Eastern Hokkaido",
+    "aliases": ["eastern hokkaido", "hokkaido east", "東北海道"]
+  },
+  {
+    "id": "japan_cloud_free_focused",
+    "bbox": [122.0, 24.0, 153.0, 46.0],
+    "note": "Japan with cloud cover focus (use 0-10% by default unless user overrides)",
+    "default_cloud_cover": 10.0,
+    "aliases": ["japan cloud free focused", "japan cloud free", "japan_low_cloud"]
+  }
+]

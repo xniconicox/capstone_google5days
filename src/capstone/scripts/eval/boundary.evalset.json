@@ -1,0 +1,38 @@
+{
+  "eval_set_id": "boundary",
+  "name": "boundary",
+  "eval_cases": [
+    {
+      "eval_id": "case_3_1_s1_radar_ehokkaido_202301_lowcloud",
+      "conversation": [
+        {
+          "invocation_id": "e-ff3a8a82-3b2e-46b2-ab48-d613b109e3da",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Find Sentinel-1 radar images over eastern Hokkaido in January 2023 with low cloud cover.\n"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "This tool can only search for Sentinel-2 optical imagery, not Sentinel-1 radar. I can search for Sentinel-2 optical images over the same area and period; would that work for you?\n"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {},
+          "creation_timestamp": 1763967292.615179
+        }
+      ],
+      "session_input": {
+        "app_name": "eval",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1763967362.3135705
+    }
+  ],
+  "creation_timestamp": 1763967358.5904121
+}
