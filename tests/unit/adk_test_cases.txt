@@ -1,3 +1,23 @@
+normal:
+  case_1_1_eastern_hokkaido_20230615_30
+  case_1_2_almost_cloud_free_japan_2023
+  case_1_3_tokyo_area_20230810_20
+  case_1_4_sapporo_202309_cloud_free
+  case_1_5_highres_optical_ehokkaido_summer2023
+  case_1_6_tokyo_late_may_2021_lowcloud   ←（新規追加）
+
+clarification:
+  case_2_2_northern_japan_autumn_2023_clarify
+  case_2_3_japan_last_summer_clarify
+  case_2_4_ehokkaido_missing_period_clarify
+  case_2_5_august2023_missing_location_clarify
+  case_2_6_cloud5_missing_loc_period_clarify
+
+boundary:
+  case_3_1_s1_radar_ehokkaido_202301_lowcloud
+
+
+
 Normal test
 
 Find Sentinel-2 images over eastern Hokkaido between 2023-06-15 and 2023-06-30 with less than 20% cloud cover.
@@ -15,10 +35,11 @@ case_1_4_sapporo_202309_cloud_free
 Find high-resolution optical images over eastern Hokkaido in summer 2023 with less than 10% cloud.
 → case_1_5_highres_optical_ehokkaido_summer2023
 
-Clarification test
 
 I need low-cloud Sentinel-2 images of tokyo in late May 2021.
-→ case_2_1_tokyo_late_may_2021_clarify
+→ case_1_6_tokyo_late_may_2021_lowcloud
+
+Clarification test
 
 Show me low-cloud Sentinel-2 images over northern Japan in autumn 2023.
 → case_2_2_northern_japan_autumn_2023_clarify

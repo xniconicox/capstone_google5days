@@ -14,6 +14,7 @@ Install dependencies:
 
 ```bash
 uv sync
+```
 
 ## 1. Overview
 
@@ -130,3 +131,41 @@ ex.)
 
 * For local and CI testing: see **doc/TESTING.md**
 * For Kaggle build & test instructions: see **doc/KAGGLE_BUILD_AND_TEST.md**
+  
+## 6. Supported Sensors and AOIs
+
+### Supported Satellite Collection
+The agent currently supports the following STAC collection:
+
+- **Sentinel-2 Level-2A (optical)**  
+  *(STAC collection ID: `sentinel-2-l2a`)*
+
+Other sensors (Sentinel-1 SAR, Landsat-8/9, PRISMA, MODIS, etc.) can be added.
+
+---
+
+### Supported AOIs (Location Coverage)
+
+Location resolution is based on a curated AOI catalog that maps  
+natural-language location hints (English + Japanese) to **canonical bounding boxes**.
+
+The catalog includes:
+
+- Country-level regions (Japan, USA mainland, UK, France, Germany)
+- Major metropolitan areas (Tokyo, Osaka, Nagoya, Sapporo, Fukuoka)
+- Regional subsets (Eastern Hokkaido)
+- Special AOIs with default cloud-cover constraints  
+  (e.g., *japan_cloud_free_focused*)
+
+Rather than embedding the full JSON here, the complete list of supported AOIs is available at:
+
+👉 **[`src/capstone/aoi/aoi_catalog.json`](src/capstone/aoi/aoi_catalog.json)**
+
+Each entry defines:  
+- `id`  
+- `bbox`  
+- `note`  
+- `aliases` (English & Japanese)  
+- optional `default_cloud_cover`
+
+You can extend coverage by editing `aoi_catalog.json`.
